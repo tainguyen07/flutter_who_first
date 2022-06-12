@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tinder_clone/Models/tinder_clone_icons.dart';
 import 'package:tinder_clone/Screens/MessagesTab.dart';
 import 'package:tinder_clone/Screens/ProfileTab.dart';
@@ -39,9 +38,9 @@ class _HomePageState extends State<HomePage>
               physics: NeverScrollableScrollPhysics(),
               controller: _tabcontroller,
               children: <Widget>[
-                new ProfileTab(),
                 new TinderTab(),
-                new MessagesTab()
+                new MessagesTab(),
+                new ProfileTab(),
               ],
             )),
       ),
@@ -66,7 +65,7 @@ class _HomePageState extends State<HomePage>
                   padding: EdgeInsets.all(ScreenUtil().setWidth(20.0)),
                   child: Center(
                     child: new Icon(
-                      Tinder_clone.iconfinder_icons_user2_1564535,
+                      Tinder_clone.iconfinder_338_tinder_logo_4375488__1_,
                       color: _tabcontroller.index == 0
                           ? Theme.of(context).primaryColor
                           : Colors.grey,
@@ -80,7 +79,7 @@ class _HomePageState extends State<HomePage>
                   padding: EdgeInsets.all(ScreenUtil().setWidth(20.0)),
                   child: Center(
                     child: new Icon(
-                      Tinder_clone.iconfinder_338_tinder_logo_4375488__1_,
+                      Tinder_clone.iconfinder_message_01_186393,
                       color: _tabcontroller.index == 1
                           ? Theme.of(context).primaryColor
                           : Colors.grey,
@@ -94,7 +93,7 @@ class _HomePageState extends State<HomePage>
                   padding: EdgeInsets.all(ScreenUtil().setWidth(20.0)),
                   child: Center(
                     child: new Icon(
-                      Tinder_clone.iconfinder_message_01_186393,
+                      Tinder_clone.iconfinder_icons_user2_1564535,
                       color: _tabcontroller.index == 2
                           ? Theme.of(context).primaryColor
                           : Colors.grey,

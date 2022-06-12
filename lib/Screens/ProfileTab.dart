@@ -197,74 +197,6 @@ class _ProfileTabState extends State<ProfileTab> {
             ),
           ),
         ),
-        new Positioned(
-            bottom: ScreenUtil().setHeight(80.0),
-            child: new Container(
-              height: ScreenUtil().setHeight(350),
-              width: MediaQuery.of(context).size.width,
-              child: new CarouselSlider(
-                height: ScreenUtil().setHeight(300),
-                aspectRatio: 16 / 2,
-                viewportFraction: 0.8,
-                enableInfiniteScroll: true,
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                autoPlayInterval: Duration(seconds: 2),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                autoPlay: true,
-                enlargeCenterPage: true,
-                pauseAutoPlayOnTouch: Duration(seconds: 5),
-                items: [0, 1, 2, 3, 4, 5].map((i) {
-                  return Builder(
-                    builder: (context) {
-                      return Container(
-                        width: ScreenUtil().setWidth(900.0),
-                        height: ScreenUtil().setHeight(180),
-                        margin: EdgeInsets.all(5.0),
-                        decoration: new BoxDecoration(
-                            color: Colors.white,
-                            border: new Border.all(
-                                color: Theme.of(context).primaryColor,
-                                width: 2),
-                            boxShadow: [
-                              new BoxShadow(
-                                  color: Colors.grey,
-                                  offset: new Offset(0.0, 5.0),
-                                  blurRadius: 10.0)
-                            ],
-                            borderRadius: BorderRadius.circular(10.0)),
-                        child: new Center(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            new Text(
-                              quotes[i].heading,
-                              textAlign: TextAlign.center,
-                              style: new TextStyle(
-                                  fontSize: ScreenUtil().setSp(65.0),
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black54),
-                            ),
-                            new SizedBox(
-                              height: ScreenUtil().setHeight(15.0),
-                            ),
-                            new Text(
-                              quotes[i].baseline,
-                              textAlign: TextAlign.center,
-                              style: new TextStyle(
-                                  fontSize: ScreenUtil().setSp(40.0),
-                                  fontWeight: FontWeight.w300,
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        )),
-                      );
-                    },
-                  );
-                }).toList(),
-              ),
-            ))
       ],
     );
   }
@@ -295,22 +227,3 @@ class MyClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
-
-class Quotes {
-  final String heading;
-  final String baseline;
-
-  Quotes(this.heading, this.baseline);
-}
-
-List<Quotes> quotes = [
-  new Quotes("GET TINDER GOLD", "See who likes you & more!"),
-  new Quotes("Get matches faster", "Boost your profile once a month!"),
-  new Quotes(
-      "I meant to swipe right", "Get unlimited Rewinds with Tinder Plus!"),
-  new Quotes("Stand out with Super Likes",
-      "You're 3 times more likely to get a match!"),
-  new Quotes("Increase your chances", "Get unlimited likes with tinder Plus!"),
-  new Quotes(
-      "Swipe around the world!", "Passport to anywhere with Tinder Plus!"),
-];

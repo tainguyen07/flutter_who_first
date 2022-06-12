@@ -23,10 +23,12 @@ class _TinderTabState extends State<TinderTab>
     return Stack(
       children: <Widget>[
         new AnimatedContainer(
-          duration: new Duration(milliseconds: 600),
+          duration: new Duration(milliseconds: 400),
           curve: Curves.fastLinearToSlowEaseIn,
           color: !atCenter
-              ? chng ? Colors.pinkAccent.shade200 : Colors.tealAccent.shade200
+              ? chng
+                  ? Colors.pinkAccent.shade200
+                  : Colors.tealAccent.shade200
               : Colors.blue.shade50,
           child: new Center(
             child: _triggerNotFound
@@ -59,8 +61,8 @@ class _TinderTabState extends State<TinderTab>
                                 width: ScreenUtil().setWidth(400),
                                 height: ScreenUtil().setWidth(400),
                                 fit: BoxFit.cover,
-                                image:
-                                    new AssetImage('assets/images/abhishekProfile.JPG')),
+                                image: new AssetImage(
+                                    'assets/images/abhishekProfile.JPG')),
                           ),
                           new SizedBox(
                             height: ScreenUtil().setHeight(40.0),
@@ -68,7 +70,8 @@ class _TinderTabState extends State<TinderTab>
                           new Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: ScreenUtil().setWidth(60.0)),
-                            child: new Text("There is no one new around you ...",
+                            child: new Text(
+                                "There is no one new around you ...",
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                     wordSpacing: 1.2,
@@ -89,40 +92,40 @@ class _TinderTabState extends State<TinderTab>
             child: new Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                new Container(
-                  padding: EdgeInsets.all(ScreenUtil().setWidth(15.0)),
-                  height: ScreenUtil().setHeight(80.0),
-                  width: ScreenUtil().setHeight(80.0),
-                  decoration: new BoxDecoration(
-                      boxShadow: [
-                        new BoxShadow(
-                            offset: new Offset(0.0, 0.0), color: Colors.grey),
-                        new BoxShadow(
-                            offset: new Offset(1.0, 1.0),
-                            color: Colors.grey,
-                            blurRadius: 5.0),
-                        new BoxShadow(
-                            offset: new Offset(-1.0, -1.0),
-                            color: Colors.white,
-                            blurRadius: 10.0)
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(60.0)),
-                  child: new ShaderMask(
-                      child: new Image(
-                          image: new AssetImage('assets/images/round.png')),
-                      blendMode: BlendMode.srcATop,
-                      shaderCallback: (Rect bounds) {
-                        return LinearGradient(
-                            colors: [
-                              Colors.amber.shade700,
-                              Colors.amber.shade400
-                            ],
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                            stops: [0.0, 1.0]).createShader(bounds);
-                      }),
-                ),
+                // new Container(
+                //   padding: EdgeInsets.all(ScreenUtil().setWidth(15.0)),
+                //   height: ScreenUtil().setHeight(80.0),
+                //   width: ScreenUtil().setHeight(80.0),
+                //   decoration: new BoxDecoration(
+                //       boxShadow: [
+                //         new BoxShadow(
+                //             offset: new Offset(0.0, 0.0), color: Colors.grey),
+                //         new BoxShadow(
+                //             offset: new Offset(1.0, 1.0),
+                //             color: Colors.grey,
+                //             blurRadius: 5.0),
+                //         new BoxShadow(
+                //             offset: new Offset(-1.0, -1.0),
+                //             color: Colors.white,
+                //             blurRadius: 10.0)
+                //       ],
+                //       color: Colors.white,
+                //       borderRadius: BorderRadius.circular(60.0)),
+                //   child: new ShaderMask(
+                //       child: new Image(
+                //           image: new AssetImage('assets/images/round.png')),
+                //       blendMode: BlendMode.srcATop,
+                //       shaderCallback: (Rect bounds) {
+                //         return LinearGradient(
+                //             colors: [
+                //               Colors.amber.shade700,
+                //               Colors.amber.shade400
+                //             ],
+                //             begin: Alignment.topRight,
+                //             end: Alignment.bottomLeft,
+                //             stops: [0.0, 1.0]).createShader(bounds);
+                //       }),
+                // ),
                 new Container(
                   padding: EdgeInsets.all(ScreenUtil().setSp(30.0)),
                   height: ScreenUtil().setHeight(110.0),
@@ -158,41 +161,41 @@ class _TinderTabState extends State<TinderTab>
                             stops: [0.0, 1.0]).createShader(bounds);
                       }),
                 ),
-                new Container(
-                  height: ScreenUtil().setHeight(80.0),
-                  width: ScreenUtil().setHeight(80.0),
-                  decoration: new BoxDecoration(
-                      boxShadow: [
-                        new BoxShadow(
-                            offset: new Offset(0.0, 0.0), color: Colors.grey),
-                        new BoxShadow(
-                            offset: new Offset(1.0, 1.0),
-                            color: Colors.grey,
-                            blurRadius: 5.0),
-                        new BoxShadow(
-                            offset: new Offset(-1.0, -1.0),
-                            color: Colors.white,
-                            blurRadius: 10.0)
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(60.0)),
-                  child: new ShaderMask(
-                      child: new Icon(
-                        Icons.star,
-                        size: ScreenUtil().setHeight(65.0),
-                      ),
-                      blendMode: BlendMode.srcATop,
-                      shaderCallback: (Rect bounds) {
-                        return LinearGradient(
-                            colors: [
-                              Colors.blue.shade600,
-                              Colors.blue.shade300
-                            ],
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                            stops: [0.0, 1.0]).createShader(bounds);
-                      }),
-                ),
+                // new Container(
+                //   height: ScreenUtil().setHeight(80.0),
+                //   width: ScreenUtil().setHeight(80.0),
+                //   decoration: new BoxDecoration(
+                //       boxShadow: [
+                //         new BoxShadow(
+                //             offset: new Offset(0.0, 0.0), color: Colors.grey),
+                //         new BoxShadow(
+                //             offset: new Offset(1.0, 1.0),
+                //             color: Colors.grey,
+                //             blurRadius: 5.0),
+                //         new BoxShadow(
+                //             offset: new Offset(-1.0, -1.0),
+                //             color: Colors.white,
+                //             blurRadius: 10.0)
+                //       ],
+                //       color: Colors.white,
+                //       borderRadius: BorderRadius.circular(60.0)),
+                //   child: new ShaderMask(
+                //       child: new Icon(
+                //         Icons.star,
+                //         size: ScreenUtil().setHeight(65.0),
+                //       ),
+                //       blendMode: BlendMode.srcATop,
+                //       shaderCallback: (Rect bounds) {
+                //         return LinearGradient(
+                //             colors: [
+                //               Colors.blue.shade600,
+                //               Colors.blue.shade300
+                //             ],
+                //             begin: Alignment.topRight,
+                //             end: Alignment.bottomLeft,
+                //             stops: [0.0, 1.0]).createShader(bounds);
+                //       }),
+                // ),
                 new Container(
                   padding: EdgeInsets.all(ScreenUtil().setSp(30.0)),
                   height: ScreenUtil().setHeight(110.0),
@@ -229,40 +232,40 @@ class _TinderTabState extends State<TinderTab>
                             stops: [0.0, 1.0]).createShader(bounds);
                       }),
                 ),
-                new Container(
-                  padding: EdgeInsets.all(ScreenUtil().setWidth(15.0)),
-                  height: ScreenUtil().setHeight(80.0),
-                  width: ScreenUtil().setHeight(80.0),
-                  decoration: new BoxDecoration(
-                      boxShadow: [
-                        new BoxShadow(
-                            offset: new Offset(0.0, 0.0), color: Colors.grey),
-                        new BoxShadow(
-                            offset: new Offset(1.0, 1.0),
-                            color: Colors.grey,
-                            blurRadius: 5.0),
-                        new BoxShadow(
-                            offset: new Offset(-1.0, -1.0),
-                            color: Colors.white,
-                            blurRadius: 10.0)
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(60.0)),
-                  child: new ShaderMask(
-                      child: new Image(
-                          image: new AssetImage('assets/images/lighting.png')),
-                      blendMode: BlendMode.srcATop,
-                      shaderCallback: (Rect bounds) {
-                        return LinearGradient(
-                            colors: [
-                              Colors.purple.shade500,
-                              Colors.purple.shade200
-                            ],
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                            stops: [0.0, 1.0]).createShader(bounds);
-                      }),
-                )
+                // new Container(
+                //   padding: EdgeInsets.all(ScreenUtil().setWidth(15.0)),
+                //   height: ScreenUtil().setHeight(80.0),
+                //   width: ScreenUtil().setHeight(80.0),
+                //   decoration: new BoxDecoration(
+                //       boxShadow: [
+                //         new BoxShadow(
+                //             offset: new Offset(0.0, 0.0), color: Colors.grey),
+                //         new BoxShadow(
+                //             offset: new Offset(1.0, 1.0),
+                //             color: Colors.grey,
+                //             blurRadius: 5.0),
+                //         new BoxShadow(
+                //             offset: new Offset(-1.0, -1.0),
+                //             color: Colors.white,
+                //             blurRadius: 10.0)
+                //       ],
+                //       color: Colors.white,
+                //       borderRadius: BorderRadius.circular(60.0)),
+                //   child: new ShaderMask(
+                //       child: new Image(
+                //           image: new AssetImage('assets/images/lighting.png')),
+                //       blendMode: BlendMode.srcATop,
+                //       shaderCallback: (Rect bounds) {
+                //         return LinearGradient(
+                //             colors: [
+                //               Colors.purple.shade500,
+                //               Colors.purple.shade200
+                //             ],
+                //             begin: Alignment.topRight,
+                //             end: Alignment.bottomLeft,
+                //             stops: [0.0, 1.0]).createShader(bounds);
+                //       }),
+                // )
               ],
             ),
           ),
@@ -270,7 +273,7 @@ class _TinderTabState extends State<TinderTab>
         new Align(
             alignment: Alignment.topCenter,
             child: new TinderSwapCard(
-              animDuration: 800,
+              animDuration: 600,
               orientation: AmassOrientation.TOP,
               totalNum: peoples.length,
               stackNum: 3,
@@ -278,7 +281,7 @@ class _TinderTabState extends State<TinderTab>
               maxWidth: MediaQuery.of(context).size.width - 10.0,
               maxHeight: MediaQuery.of(context).size.height * 0.74,
               minWidth: MediaQuery.of(context).size.width - 50.0,
-              minHeight: MediaQuery.of(context).size.height * 0.73,
+              minHeight: MediaQuery.of(context).size.height * 0.4,
               cardBuilder: (context, index) {
                 return peoples[index];
               },

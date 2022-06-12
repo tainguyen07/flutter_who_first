@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tinder_clone/Models/ChatUser.dart';
@@ -198,7 +196,11 @@ class _MessagesTabState extends State<MessagesTab> {
                     children: List.generate(dummyMsg.length, (index) {
                       return new GestureDetector(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => InChatScreen(user: dummyMsg[index])));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      InChatScreen(user: dummyMsg[index])));
                         },
                         child: Column(
                           children: <Widget>[
@@ -212,15 +214,17 @@ class _MessagesTabState extends State<MessagesTab> {
                                     height: ScreenUtil().setHeight(180),
                                     width: ScreenUtil().setHeight(180),
                                     decoration: new BoxDecoration(
-                                        borderRadius:
-                                            new BorderRadius.circular(100),
-                                        ),
+                                      borderRadius:
+                                          new BorderRadius.circular(100),
+                                    ),
                                     child: ClipRRect(
-                                      borderRadius: new BorderRadius.circular(100),
+                                      borderRadius:
+                                          new BorderRadius.circular(100),
                                       child: new Image(
-                                        fit: BoxFit.cover,
-                                      image: new AssetImage(dummyMsg[index].imageURL)
-                                    ),),
+                                          fit: BoxFit.cover,
+                                          image: new AssetImage(
+                                              dummyMsg[index].imageURL)),
+                                    ),
                                   ),
                                   new SizedBox(
                                     width: ScreenUtil().setWidth(25.0),

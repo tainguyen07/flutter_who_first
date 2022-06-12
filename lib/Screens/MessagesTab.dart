@@ -25,155 +25,12 @@ class _MessagesTabState extends State<MessagesTab> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        new Container(
-          height: ScreenUtil().setHeight(115.0),
-          // color: Colors.indigo,
-          child: new Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              new GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _messagesSelected = true;
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: ScreenUtil().setWidth(115.0),
-                      vertical: ScreenUtil().setHeight(20.0)),
-                  child: new Text(
-                    "Messages",
-                    style: new TextStyle(
-                        fontSize: ScreenUtil().setSp(50.0),
-                        fontWeight: FontWeight.w500,
-                        color: _messagesSelected
-                            ? Theme.of(context).primaryColor
-                            : Colors.blueGrey.shade200),
-                  ),
-                ),
-              ),
-              new VerticalDivider(
-                width: 0,
-                thickness: 2,
-                endIndent: ScreenUtil().setHeight(20.0),
-                indent: ScreenUtil().setHeight(20.0),
-                color: Colors.blueGrey.shade100,
-              ),
-              new GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _messagesSelected = false;
-                    if (_firstVistToFeed == false) {
-                      Future.delayed(
-                          new Duration(
-                            seconds: 3,
-                          ), () {
-                        _firstVistToFeed = true;
-                        setState(() {});
-                      });
-                    }
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: ScreenUtil().setWidth(150.0),
-                      vertical: ScreenUtil().setHeight(20.0)),
-                  child: new Text(
-                    "  Feed  ",
-                    style: new TextStyle(
-                        fontSize: ScreenUtil().setSp(50.0),
-                        fontWeight: FontWeight.w500,
-                        color: _messagesSelected
-                            ? Colors.blueGrey.shade200
-                            : Theme.of(context).primaryColor),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-        new Divider(
-          height: 1,
-          thickness: 2,
-          color: Colors.blueGrey.shade50,
-        ),
-        // Based on which section does it selected .
         _messagesSelected
             ? new Expanded(
                 child: new ListView(
                 children: <Widget>[
                   new SizedBox(
                     height: ScreenUtil().setHeight(30.0),
-                  ),
-                  new Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: ScreenUtil().setWidth(10.0)),
-                    child: new TextField(
-                      controller: _fieldController,
-                      cursorRadius: Radius.circular(10.0),
-                      cursorColor: Theme.of(context).primaryColor,
-                      style: new TextStyle(fontSize: ScreenUtil().setSp(50.0)),
-                      decoration: new InputDecoration(
-                          hintText: "Search ${dummyMsg.length} matches",
-                          suffixText: 'Newest  ',
-                          border: InputBorder.none,
-                          prefixIcon: new Icon(
-                            Icons.search,
-                            color: Theme.of(context).primaryColor,
-                          )),
-                    ),
-                  ),
-                  new Divider(
-                    height: 1.0,
-                    color: Theme.of(context).accentColor,
-                    indent: ScreenUtil().setWidth(120.0),
-                    endIndent: ScreenUtil().setWidth(30.0),
-                  ),
-                  new SizedBox(
-                    height: ScreenUtil().setHeight(30.0),
-                  ),
-                  new Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: ScreenUtil().setWidth(30.0)),
-                    child: new Column(
-                      children: <Widget>[
-                        new Align(
-                          alignment: Alignment.topLeft,
-                          child: new Text(
-                            "New Matches",
-                            style: new TextStyle(
-                                fontSize: ScreenUtil().setSp(45.0),
-                                fontWeight: FontWeight.w600,
-                                color: Theme.of(context).secondaryHeaderColor),
-                          ),
-                        ),
-                        new SizedBox(
-                          height: ScreenUtil().setHeight(30.0),
-                        ),
-                      ],
-                    ),
-                  ),
-                  new Container(
-                    height: ScreenUtil().setHeight(250.0),
-                    child: new ListView.builder(
-                        itemCount: 10,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return Center(
-                            child: new Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: ScreenUtil().setWidth(20.0)),
-                              width: ScreenUtil().setHeight(150),
-                              height: ScreenUtil().setHeight(150),
-                              decoration: new BoxDecoration(
-                                  borderRadius: new BorderRadius.circular(90),
-                                  color: Colors.blueGrey.shade50),
-                            ),
-                          );
-                        }),
-                  ),
-                  new SizedBox(
-                    height: ScreenUtil().setHeight(20.0),
                   ),
                   new Padding(
                     padding: EdgeInsets.symmetric(
@@ -185,7 +42,7 @@ class _MessagesTabState extends State<MessagesTab> {
                         style: new TextStyle(
                             fontSize: ScreenUtil().setSp(45.0),
                             fontWeight: FontWeight.w600,
-                            color: Theme.of(context).secondaryHeaderColor),
+                            color: Colors.black54),
                       ),
                     ),
                   ),

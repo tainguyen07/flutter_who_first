@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 
@@ -15,8 +16,6 @@ const users = const {
 };
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _text = TextEditingController();
-  bool _validate = false;
   Duration get loginTime => Duration(milliseconds: 2250);
 
   GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
@@ -38,14 +37,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<String> _authUser(LoginData data) {
     debugPrint('Name: ${data.name}, Password: ${data.password}');
-    return Future.delayed(loginTime).then((_) {
-      if (!users.containsKey(data.name)) {
-        return 'User not exists';
+    // ignore: missing_return
+    return Future.delayed(loginTime).then((_) async {
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: data.name, password: data.password);
+        return null;
+      } on FirebaseAuthException catch (e) {
+        debugPrint(e.toString());
+        return '${e.message}';
       }
-      if (users[data.name] != data.password) {
-        return 'Password does not match';
-      }
-      return null;
     });
   }
 

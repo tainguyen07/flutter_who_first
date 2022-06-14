@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		e6R3lzvj54Ee9TjRGg5NaccmkD4=
+		90cMsGlLMLeLuSbEXRjqTHERtWk=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		0lRm7p6Hv5Go1yGUreCHXqG0dTE=
+		whX/Cvi6hIw7GEzgEstNjaMMics=
 		</data>
 		<key>flutter_assets/assets/fonts/Tinder_clone.ttf</key>
 		<data>
@@ -98,11 +98,15 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		OGdHGYj/SufwBXhmF6SZB/KfFfQ=
+		3OXOKsGLVg/4wr4G5XhpvumyXrc=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		TdRNbRcrlXQQgeiweLFizPmk92g=
+		</data>
+		<key>flutter_assets/packages/flutter_login/assets/images/ecorp.png</key>
+		<data>
+		fPD6+F3Vq+sf046sFF5+KZCXeL0=
 		</data>
 		<key>flutter_assets/packages/flutter_tindercard/assets/welcome0.png</key>
 		<data>
@@ -139,7 +143,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZY/498sG1OT6bF2v9/MJ1I1szJJP4mwt+WAMRBC1zIg=
+			k3sBNx77+HB1ysshQdCizD9ZWeeWNLphUKA2QclIjwg=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -153,7 +157,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8k8MKHXcKHRueHbqylHJjJ5GWAC/iPy01kUS0Klcplo=
+			1IyKpf4sQbFsG3GSDU1nYPcZ/dQrQLr4Vb6ZuiOP56E=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/fonts/Tinder_clone.ttf</key>
@@ -293,7 +297,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nZGaCro2PF5UrPQi6Bd20qwn4JVqhc/8v8RuVHUxwGY=
+			0Z5YxAJWFFfG+xKGjOw/Ul3I6qPJug7+oCiIpfj1pz4=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -301,6 +305,13 @@
 			<key>hash2</key>
 			<data>
 			d6fK2iHuml40zu1xSV3HnoE9PVFhQREGOzVfduySSBY=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/flutter_login/assets/images/ecorp.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/Q7I6ubQ6CHGZWoU3SML5ibD+7SKoGBFNWlPkV0gpF0=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/flutter_tindercard/assets/welcome0.png</key>

@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tinder_clone/Models/tinder_clone_icons.dart';
+import 'package:tinder_clone/Screens/LoginScreen.dart';
 import 'package:tinder_clone/Screens/MessagesTab.dart';
 import 'package:tinder_clone/Screens/ProfileTab.dart';
 import 'package:tinder_clone/Screens/TinderTab.dart';
@@ -22,6 +24,20 @@ class _HomePageState extends State<HomePage>
     });
   }
 
+  Future<void> _signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => LoginScreen(),
+        ),
+      );
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,6 +48,14 @@ class _HomePageState extends State<HomePage>
             appBar: AppBar(
               backgroundColor: Theme.of(context).primaryColor,
               title: Text("Who First"),
+              actions: <Widget>[
+                MaterialButton(
+                  child: Icon(Icons.logout, color: Colors.white),
+                  onPressed: () async {
+                    _signOut();
+                  },
+                )
+              ],
             ),
             bottomNavigationBar: menu(),
             body: TabBarView(

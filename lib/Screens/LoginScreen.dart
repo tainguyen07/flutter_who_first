@@ -10,14 +10,7 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-const users = const {
-  'dribbble@gmail.com': '12345',
-  'hunter@gmail.com': 'hunter',
-};
-
 class _LoginScreenState extends State<LoginScreen> {
-  Duration get loginTime => Duration(milliseconds: 2250);
-
   GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
 
   @override
@@ -28,42 +21,46 @@ class _LoginScreenState extends State<LoginScreen> {
       onLogin: _authUser,
       onSignup: _signupUser,
       onSubmitAnimationCompleted: () {
-        Navigator.push(
+        Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => HomePage()));
       },
       onRecoverPassword: _recoverPassword,
     );
   }
 
-  Future<String> _authUser(LoginData data) {
+  Future<String> _authUser(LoginData data) async {
     debugPrint('Name: ${data.name}, Password: ${data.password}');
     // ignore: missing_return
-    return Future.delayed(loginTime).then((_) async {
-      try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: data.name, password: data.password);
-        return null;
-      } on FirebaseAuthException catch (e) {
-        debugPrint(e.toString());
-        return '${e.message}';
-      }
-    });
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: data.name, password: data.password);
+      return null;
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.toString());
+      return '${e.message}';
+    }
   }
 
-  Future<String> _signupUser(LoginData data) {
+  Future<String> _signupUser(LoginData data) async {
     debugPrint('Signup Name: ${data.name}, Password: ${data.password}');
-    return Future.delayed(loginTime).then((_) {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: data.name, password: data.password);
       return null;
-    });
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.toString());
+      return '${e.message}';
+    }
   }
 
-  Future<String> _recoverPassword(String name) {
+  Future<String> _recoverPassword(String name) async {
     debugPrint('Name: $name');
-    return Future.delayed(loginTime).then((_) {
-      if (!users.containsKey(name)) {
-        return 'User not exists';
-      }
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: name);
       return null;
-    });
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.toString());
+      return '${e.message}';
+    }
   }
 }

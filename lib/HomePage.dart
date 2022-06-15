@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tinder_clone/Models/tinder_clone_icons.dart';
 import 'package:tinder_clone/Screens/LoginScreen.dart';
 import 'package:tinder_clone/Screens/MessagesTab.dart';
@@ -27,6 +28,8 @@ class _HomePageState extends State<HomePage>
   Future<void> _signOut() async {
     try {
       await FirebaseAuth.instance.signOut();
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs?.clear();
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(

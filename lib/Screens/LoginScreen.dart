@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../HomePage.dart';
 import '../Models/SignUpData.dart';
@@ -34,6 +35,8 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: data.name, password: data.password);
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs?.setBool("isLoggedIn", true);
       return null;
     } on FirebaseAuthException catch (e) {
       debugPrint(e.toString());

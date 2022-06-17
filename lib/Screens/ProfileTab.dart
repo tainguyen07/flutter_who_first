@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ProfileTab extends StatefulWidget {
   @override
@@ -7,6 +10,8 @@ class ProfileTab extends StatefulWidget {
 }
 
 class _ProfileTabState extends State<ProfileTab> {
+  final picker = ImagePicker();
+  Future<PickedFile> pickedFile = Future.value(null);
   @override
   Widget build(BuildContext context) {
     return new Stack(
@@ -37,12 +42,37 @@ class _ProfileTabState extends State<ProfileTab> {
                         new SizedBox(height: ScreenUtil().setHeight(50.0)),
                         new ClipRRect(
                           borderRadius: BorderRadius.circular(500.0),
-                          child: new Image(
-                              fit: BoxFit.cover,
-                              height: ScreenUtil().setHeight(350.0),
-                              width: ScreenUtil().setWidth(430.0),
-                              image: new AssetImage(
-                                  'assets/images/abhishekProfile.JPG')),
+                          child: RawMaterialButton(
+                            onPressed: () {
+                              pickedFile = picker
+                                  .getImage(source: ImageSource.gallery)
+                                  .whenComplete(() => {setState(() {})});
+                            },
+                            elevation: 2.0,
+                            fillColor: Colors.white,
+                            child: FutureBuilder<PickedFile>(
+                              future: pickedFile,
+                              builder: (context, snap) {
+                                if (snap.hasData) {
+                                  return Container(
+                                    height: ScreenUtil().setHeight(350.0),
+                                    width: ScreenUtil().setWidth(430.0),
+                                    child: Image.file(
+                                      File(snap.data.path),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    color: Colors.white,
+                                  );
+                                }
+                                return Container(
+                                  height: ScreenUtil().setHeight(350.0),
+                                  width: ScreenUtil().setWidth(430.0),
+                                  color: Colors.blueAccent,
+                                );
+                              },
+                            ),
+                            shape: CircleBorder(),
+                          ),
                         ),
                         new SizedBox(height: ScreenUtil().setHeight(10.0)),
                         new Text(
